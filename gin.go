@@ -52,6 +52,12 @@ type HandlersChain []HandlerFunc
 
 // Last returns the last handler in the chain. i.e. the last handler is the main one.
 func (c HandlersChain) Last() HandlerFunc {
+	// 如果我写，是这样, 调用了两次len()
+	//if len(c) <= 0 {
+	//	return nil
+	//}
+	//return c[len(c)-1]
+
 	if length := len(c); length > 0 {
 		return c[length-1]
 	}
